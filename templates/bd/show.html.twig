@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %} {% block title %}Les Bandes Dessinnées de l'auteur{% endblock %} {% block body %}
+
+<style>
+    .example-wrapper {
+        margin: 1em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
+    
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
+</style>
+
+<article>
+    <h2>{{ auteur.auteur }}</h2>
+    <div>Titre de la BD
+        <div class="content">
+            <img src="http://placehold.it/350x350" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fuga impedit, cupiditate unde ea quo quaerat quia a inventore obcaecati voluptate ducimus sequi animi enim incidunt doloremque. Quis reiciendis explicabo rem hic atque quisquam
+                voluptatibus pariatur, dignissimos, at qui aut laborum ducimus illo nobis amet dolorum. Dolorem illo ea eveniet!</p>
+            <hr>
+            </img>
+        </div>
+    </div>
+</article>
+
+{% endblock %}
