@@ -1,4 +1,5 @@
-{% extends "base.html.twig" %} {% block title %}Les Bandes Dessinnées de l'auteur{% endblock %} {% block body %}
+{% extends "base.html.twig" %} {% block title %}Les bandes dessinnées de l'auteur{% endblock %} {% block body %}
+
 
 <style>
     .example-wrapper {
@@ -14,17 +15,21 @@
     }
 </style>
 
+
+{% for produit in produits %}
+
 <article>
-    <h2>{{ auteur.auteur }}</h2>
-    <div>Titre de la BD
+    <h2>{{ produit.titre }}</h2>
+    <div>
+        <h2>{{ produit.heros }} - {{ produit.refbd }}</h2>
         <div class="content">
-            <img src="http://placehold.it/350x350" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fuga impedit, cupiditate unde ea quo quaerat quia a inventore obcaecati voluptate ducimus sequi animi enim incidunt doloremque. Quis reiciendis explicabo rem hic atque quisquam
-                voluptatibus pariatur, dignissimos, at qui aut laborum ducimus illo nobis amet dolorum. Dolorem illo ea eveniet!</p>
+            <img src="{{ asset('images/') }}{{ produit.refbd }}{{'.jpg'}}" alt="">
+
+            <p>{{ produit.resume }}</p>
             <hr>
             </img>
         </div>
     </div>
 </article>
 
-{% endblock %}
+{% endfor %} {% endblock %}
