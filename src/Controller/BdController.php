@@ -41,14 +41,28 @@ class BdController extends AbstractController
     }
 
      /**
-     * @Route("/bd/livre/{id}", name="bd_show")
+     * @Route("/livres/auteur/{id}", name="bd_show")
      */
     public function show($id, ProduitRepository $repo) {
 
-        $produits = $repo->findAll();
+        $produits = $repo->findby(array("auteur" => $id));
+        //$couvertures = ['BD000001','BDOOOOO7','BD000013'];
+        $couvertures = array();
+
+        $dir = "images/";
+        if ( $dossier = opendir($dir)){
+            while ( ($item = readdir($dossier)) !== false) {
+                //if ($item[0] == '.') { continue;}
+                $pos_point = strpos($item, '.');
+                $item = substr($item, 0, $pos_point);
+                $couvertures[] = strtoupper($item);
+            }
+            closedir($dossier);
+        }
 
         return $this->render('bd/show.html.twig', [
-            'produits' => $produits
+            'produits' => $produits,
+            'couvertures' => $couvertures,
         ]);
     }
 }
