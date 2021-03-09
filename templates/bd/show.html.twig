@@ -1,37 +1,19 @@
-{% extends "base.html.twig" %} {% block title %}Les bandes dessinnées de l'auteur{% endblock %} {% block body %}
-
-
-<style>
-    .example-wrapper {
-        margin: 1em auto;
-        max-width: 800px;
-        width: 95%;
-        font: 18px/1.5 sans-serif;
-    }
-    
-    .example-wrapper code {
-        background: #F5F5F5;
-        padding: 2px 6px;
-    }
-</style>
-
-
-{% for produit in produits %}
-
-<article>
-    <h2>{{ produit.titre }}</h2>
-    <div>
-        <h2>{{ produit.heros }} - {{ produit.auteur }}</h2>
-        <div class="content">
-            {% if produit.refbd in couvertures %}
-            <img src="{{ asset('images/') }}{{ produit.refbd }}{{'.jpg'}}" alt="{{ produit.refbd }}" class="thumbnail"> {% else %}
-            <img src="{{ asset('images/defaut.jpg') }}" alt="aucune couverture" class="thumbnail"> {% endif %}
-            <p>{{ produit.resume }}</p>
-            {{ produit.refbd }}
-            <hr>
-            </img>
+{% extends "base.html.twig" %} {% block title %}Les bandes dessinnées de l'auteur{% endblock %} {% block body %} {% for produit in produits %}
+<div class="example-wrapper">
+    <article>
+        <h2>{{ produit.titre }}</h2>
+        <div>
+            <h2>{{ produit.heros }} - {{ produit.auteur }}</h2>
+            <div class="content">
+                {% if produit.refbd in couvertures %}
+                <img src="{{ asset('images/') }}{{ produit.refbd }}{{'.jpg'}}" alt="{{ produit.refbd }}" class="thumbnail"> {% else %}
+                <img src="{{ asset('images/defaut.jpg') }}" alt="aucune couverture" class="thumbnail"> {% endif %}
+                <p>{{ produit.resume }}</p>
+                {{ produit.refbd }}
+                <hr>
+                </img>
+            </div>
         </div>
-    </div>
-</article>
-
+    </article>
+</div>
 {% endfor %} {% endblock %}
