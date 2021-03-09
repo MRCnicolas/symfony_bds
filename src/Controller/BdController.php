@@ -28,7 +28,7 @@ class BdController extends AbstractController
 
         }
     /**
-     * @Route("/", name="home")
+     * @Route("/home", name="home")
      */
     public function home(AuteurRepository $repo): Response
     {
