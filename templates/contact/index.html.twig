@@ -3,7 +3,11 @@
 
 
 <div class="example-wrapper">
-    {{ form_start(contact_form) }} {{ form_widget(contact_form) }}
+
+    {{ form_start(contact_form) }} {{ form_row(contact_form.name, {'label': 'Nom d\'utilisateur', 'attr': {'class': 'input-group','placeholder': 'votre nom d\'utilisateur...' }}) }} {{ form_row(contact_form.from, {'label': 'Adresse email', 'attr': {'class':
+    'input-group', 'placeholder': 'Adresse email...' }}) }} {{ form_row(contact_form.message, {'label': 'Message', 'attr': {'class': 'input-group', 'placeholder': 'Message...' }}) }}
+
+
     <input type="submit" value="envoyer" class "btn btn-success" /> {{ form_end(contact_form) }}
 </div>
 
